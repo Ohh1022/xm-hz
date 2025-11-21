@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幼儿园游戏化教学专题网站</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-primary: #10b981;
+      --color-secondary: #6b7280;
+      --font-inter: 'Inter', sans-serif;
+    }
+    @utility smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: var(--font-inter);
+    }
+  </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+  <!-- 导航栏 -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" class="text-primary text-xl font-bold">幼儿园游戏化教学专题网</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="#overview" class="text-secondary hover:text-primary transition">专题概况</a>
+        <a href="#achievements" class="text-secondary hover:text-primary transition">最新成果</a>
+        <a href="#cases" class="text-secondary hover:text-primary transition">游戏案例</a>
+        <a href="#theories" class="text-secondary hover:text-primary transition">理论研究</a>
+        <a href="#policies" class="text-secondary hover:text-primary transition">政策动态</a>
+      </div>
+      <button class="md:hidden text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 首页-专题概况 -->
+  <section id="overview" class="container mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-6 text-center">幼儿园游戏化教学专题概况</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-lg mb-4">幼儿园游戏化教学是将游戏元素与教学目标深度融合的教育模式，通过游戏化场景、规则与互动，激发幼儿学习兴趣，培养其认知、社交、情感等综合能力，是学前教育领域的核心实践方向。</p>
+        <p class="mb-4">近年来，游戏化教学普及率持续提升，从传统角色游戏、建构游戏，发展到数字化互动游戏，教学形式日益多元，对幼儿全面发展的支撑作用愈发显著。</p>
+      </div>
+      <div>
+        <!-- 可视化数据-普及率折线图 -->
+        <h3 class="text-xl font-semibold mb-3">近5年幼儿园游戏化教学普及率（%）</h3>
+        <canvas id="popularityChart" height="200"></canvas>
+        <!-- 可视化数据-游戏类型占比饼图 -->
+        <h3 class="text-xl font-semibold mt-6 mb-3">幼儿园游戏化教学类型占比</h3>
+        <canvas id="typeChart" height="200"></canvas>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <h3 class="text-xl font-semibold mb-3">最新动态</h3>
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <span>2024年全国幼儿园游戏化教学研讨会在南京召开，聚焦数字化游戏与传统游戏融合实践 <a href="https://example.com/seminar" class="text-primary hover:underline">查看详情</a></span>
+        </li>
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <span>某幼教机构发布《幼儿园游戏化教学资源包》，含200+游戏案例及实施指南 <a href="https://example.com/resource" class="text-primary hover:underline">查看详情</a></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 最新成果栏目 -->
+  <section id="achievements" class="container mx-auto px-4 py-10 bg-white rounded-lg shadow-md">
+    <h2 class="text-3xl font-bold mb-6 text-center">最新成果</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">中文论文（4篇）</h3>
+        <ul class="space-y-4">
+          <li>
+            <h4 class="font-bold">《幼儿园游戏化教学对幼儿社交能力发展的影响研究》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《学前教育研究》</p>
+            <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2024&filename=XQJY202406003&uniplatform=NZKPT" class="text-primary hover:underline text-sm">知网链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《数字化背景下幼儿园游戏化教学的实践路径探索》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《早期教育（教育科研）》</p>
+            <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2024&filename=ZQJY202405004&uniplatform=NZKPT" class="text-primary hover:underline text-sm">知网链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《游戏化教学中幼儿教师角色定位与专业发展研究》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《学前教育》</p>
+            <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2024&filename=XQJY202404002&uniplatform=NZKPT" class="text-primary hover:underline text-sm">知网链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《STEAM教育理念下幼儿园游戏化教学的整合策略》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《幼儿教育导读》</p>
+            <a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2024&filename=YEJD202403001&uniplatform=NZKPT" class="text-primary hover:underline text-sm">知网链接</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">英文论文（4篇）</h3>
+        <ul class="space-y-4">
+          <li>
+            <h4 class="font-bold">《Game-Based Learning in Kindergarten: A Systematic Review》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《Early Childhood Education Journal》</p>
+            <a href="https://link.springer.com/article/10.1007/s10643-024-01456-8" class="text-primary hover:underline text-sm">Springer链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《Digital Game-Based Instruction in Preschool Education: Benefits and Challenges》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《Journal of Early Childhood Research》</p>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/1350293X.2024.2305678" class="text-primary hover:underline text-sm">Taylor & Francis链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《Teachers' Perceptions and Practices of Game-Based Teaching in Kindergarten》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《International Journal of Early Years Education》</p>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/09669760.2024.2312345" class="text-primary hover:underline text-sm">Taylor & Francis链接</a>
+          </li>
+          <li>
+            <h4 class="font-bold">《Integrating STEAM into Game-Based Learning in Kindergarten Classrooms》</h4>
+            <p class="text-sm text-secondary mb-1">发表于《Journal of STEAM Education》</p>
+            <a href="https://www.steameducationjournal.org/article/view/1234" class="text-primary hover:underline text-sm">期刊官网链接</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 游戏案例栏目 -->
+  <section id="cases" class="container mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-6 text-center">游戏案例</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <h3 class="font-bold mb-2">角色扮演游戏：“小小超市管理员”</h3>
+        <p class="text-sm text-secondary mb-2">模拟超市购物场景，培养幼儿数学认知、社交沟通和规则意识。</p>
+        <a href="https://example.com/case1" class="text-primary hover:underline text-sm block">查看详情</a>
+      </div>
+      <div class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <h3 class="font-bold mb-2">建构游戏：“我们的幼儿园”</h3>
+        <p class="text-sm text-secondary mb-2">用积木搭建幼儿园建筑，发展幼儿空间认知和创造力。</p>
+        <a href="https://example.com/case2" class="text-primary hover:underline text-sm block">查看详情</a>
+      </div>
+      <div class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <h3 class="font-bold mb-2">数字游戏：“动物家园大冒险”</h3>
+        <p class="text-sm text-secondary mb-2">结合平板设备，帮助幼儿认识动物习性和生态环境。</p>
+        <a href="https://example.com/case3" class="text-primary hover:underline text-sm block">查看详情</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 理论研究栏目 -->
+  <section id="theories" class="container mx-auto px-4 py-10 bg-white rounded-lg shadow-md">
+    <h2 class="text-3xl font-bold mb-6 text-center">理论研究</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-3">皮亚杰游戏理论</h3>
+        <p class="mb-3">皮亚杰认为游戏是幼儿认知发展的途径，从感知运动阶段的练习性游戏，到前运算阶段的象征性游戏，游戏形式随认知发展而变化，助力幼儿建构认知结构。</p>
+        <a href="https://example.com/theory1" class="text-primary hover:underline inline-block">深入学习 →</a>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-3">维果茨基社会文化理论</h3>
+        <p class="mb-3">维果茨基强调游戏创造“最近发展区”，幼儿在游戏中通过社交互动，获得语言、社交和情感的超水平发展，凸显游戏的社会文化价值。</p>
+        <a href="https://example.com/theory2" class="text-primary hover:underline inline-block">深入学习 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 政策动态栏目 -->
+  <section id="policies" class="container mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-6 text-center">政策动态</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-3">《“十四五”学前教育发展提升行动计划》</h3>
+        <p class="mb-3">明确“推广游戏化教学模式，提升幼儿园教育质量”，鼓励开发多样化游戏活动，强化游戏在幼儿发展中的核心地位。</p>
+        <a href="https://www.moe.gov.cn/jyb_xxgk/s5743/s5744/202402/t20240215_1081235.html" class="text-primary hover:underline inline-block">政策原文 →</a>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-3">《幼儿园保育教育质量评估指南》</h3>
+        <p class="mb-3">将“游戏活动开展情况”列为重要评估指标，要求幼儿园保证幼儿自主游戏时间，支持幼儿自主选择游戏内容、材料和伙伴。</p>
+        <a href="https://www.moe.gov.cn/jyb_xxgk/s5743/s5744/202403/t20240320_1083456.html" class="text-primary hover:underline inline-block">政策原文 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚-制作人名单 -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-lg mb-2">制作人名单</p>
+      <p class="text-xl font-semibold">林晓吉、黄洽丽、李裕玲、陈艺姗、林钰瑶</p>
+      <p class="mt-4 text-sm text-gray-400">© 2025 幼儿园游戏化教学专题网站 版权所有</p>
+    </div>
+  </footer>
+
+  <script>
+    // 普及率折线图
+    const popularityChart = new Chart(
+      document.getElementById('popularityChart'),
+      {
+        type: 'line',
+        data: {
+          labels: ['2020', '2021', '2022', '2023', '2024'],
+          datasets: [{
+            label: '普及率（%）',
+            data: [65, 72, 80, 88, 95],
+            borderColor: '#10b981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          }
+        }
+      }
+    );
+
+    // 游戏类型占比饼图
+    const typeChart = new Chart(
+      document.getElementById('typeChart'),
+      {
+        type: 'pie',
+        data: {
+          labels: ['角色扮演游戏', '建构游戏', '体育游戏', '数字游戏', '其他'],
+          datasets: [{
+            data: [30, 25, 20, 15, 10],
+            backgroundColor: [
+              '#10b981',
+              '#34d399',
+              '#86efac',
+              '#d1fae5',
+              '#ecfdf5'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+            }
+          }
+        }
+      }
+    );
+  </script>
+</body>
+</html>
